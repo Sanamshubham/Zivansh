@@ -18,7 +18,7 @@ const Hero = () => {
 
           <div className="mt-6 flex gap-4 flex-wrap">
             <a
-              href="/menu"
+              href="#"
               className="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700"
             >
               View Menu

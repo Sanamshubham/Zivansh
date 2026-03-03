@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-// import Menu from "./Menu";
+import Menu from "../pages/Menu";
 import WhyChooseUs from "../components/WhyChooseUs";
 // import Contact from "./Contact";
 
@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <Navbar />
       <Hero />
-      {/* <Menu></Menu> */}
+      <Menu></Menu>
       <WhyChooseUs />
       {/* <Contact/> */}
     </>
