@@ -3,7 +3,7 @@ const Hero = () => {
     <section className="bg-green-50 py-16 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         
-        {/* TEXT SECTION */}
+        {/* TEXT */}
         <div>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
             Fuel Your Workout with{" "}
@@ -17,31 +17,30 @@ const Hero = () => {
           <div className="mt-6 flex gap-4 flex-wrap">
             <a
               href="/menu"
-              className="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition"
+              className="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700"
             >
               View Menu
             </a>
 
             <a
-              href="https://wa.me/918588866339?text=Hello%20GymFuel%20Kitchen!%20I%20want%20healthy%20gym%20food."
+              href="https://wa.me/918588866339"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-green-600 text-green-600 px-6 py-3 rounded-lg font-medium hover:bg-green-50 transition"
+              className="border border-green-600 text-green-600 px-6 py-3 rounded-lg font-medium hover:bg-green-50"
             >
               Order on WhatsApp
             </a>
           </div>
         </div>
 
-        {/* IMAGE SECTION */}
+        {/* IMAGE */}
         <div className="flex justify-center">
           <img
-            src="src/images/hero_food.png"
+            src="/hero_food.png"
             alt="Healthy Gym Food"
             className="rounded-2xl shadow-lg w-full max-w-md object-cover"
           />
         </div>
-
       </div>
     </section>
   );
