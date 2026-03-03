@@ -25,7 +25,7 @@
 //   export default Navbar;
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import logo from "../assets/images/logo";
+import logo from "../assets/images/logo.jpeg";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);

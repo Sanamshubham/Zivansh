@@ -1,3 +1,5 @@
+import heroImage from "../assets/images/hero_food.png";
+
 const Hero = () => {
   return (
     <section className="bg-green-50 py-16 px-6">
@@ -36,9 +38,9 @@ const Hero = () => {
         {/* IMAGE */}
         <div className="flex justify-center">
           <img
-            src="/hero_food.png"
+            src={heroImage}
             alt="Healthy Gym Food"
-            className="rounded-2xl shadow-lg w-full max-w-md object-cover"
+            className="rounded-2xl shadow-lg w-full max-w-md object-contain"
           />
         </div>
       </div>
