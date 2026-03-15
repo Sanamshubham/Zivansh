@@ -1,92 +1,75 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 
-/* ===== IMAGE IMPORTS ===== */
+/* IMAGE IMPORTS */
 import salad1 from "../assets/images/classic_salad.jpeg";
-import salad2 from "../assets/images/classic_salad2.jpeg";
-
 import potato1 from "../assets/images/potato.jpeg";
-import potato2 from "../assets/images/potato2.jpeg";
-
 import poha1 from "../assets/images/poha.jpeg";
-import poha2 from "../assets/images/poha2.jpeg";
-
 import fruit1 from "../assets/images/fruits_salad.jpeg";
-import fruit2 from "../assets/images/fruits_salad2.jpeg";
 
-/* ===== PRODUCTS ===== */
+/* PRODUCTS */
 const products = [
   {
     name: "Classic Protein Salad",
     price: 50,
-    desc: "Corn, kabuli chana, rajma, sprouts, cucumber, beetroot, capsicum & paneer.",
-    images: [salad1, salad2],
+    image: salad1,
   },
   {
     name: "Sweet Potato",
     price: 50,
-    desc: "Best pre-workout food. Rich in fiber & complex carbs.",
-    images: [potato1, potato2],
+    image: potato1,
   },
   {
     name: "Poha & Peanuts Salad",
     price: 50,
-    desc: "Light, healthy & energy-boosting gym diet meal.",
-    images: [poha1, poha2],
+    image: poha1,
   },
   {
     name: "Fruit Salad",
     price: 80,
-    desc: "Seasonal fruits including dragon fruit & kiwi.",
-    images: [fruit1, fruit2],
+    image: fruit1,
   },
 ];
 
-/* ===== CARD ===== */
-const MenuCard = ({ item }) => {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % item.images.length);
-    }, 2500);
-    return () => clearInterval(timer);
-  }, [item.images.length]);
-
-  return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition">
-      <div className="p-3">
-        <img
-          src={item.images[index]}
-          alt={item.name}
-          className="h-56 mx-auto object-contain rounded-xl"
-        />
-      </div>
-
-      <div className="p-4 text-center">
-        <h3 className="font-bold text-lg">{item.name}</h3>
-        <p className="text-sm text-gray-600 mt-1">{item.desc}</p>
-
-        <a
-          href={`https://wa.me/918588866339?text=${encodeURIComponent(
-            `Hi GymFuel Kitchen, I want to order ${item.name}`
-          )}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block mt-4 bg-green-600 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-green-700"
-        >
-          Order Now
-        </a>
-      </div>
-    </div>
-  );
-};
-
-/* ===== PAGE ===== */
 const Menu = () => {
+  const [selected, setSelected] = useState({});
+  const [gymName, setGymName] = useState("");
+
+  /* HANDLE CHECKBOX */
+  const toggleProduct = (name) => {
+    setSelected((prev) => ({
+      ...prev,
+      [name]: { qty: 1 },
+    }));
+  };
+
+  /* HANDLE QUANTITY */
+  const changeQty = (name, qty) => {
+    setSelected((prev) => ({
+      ...prev,
+      [name]: { qty },
+    }));
+  };
+
+  /* WHATSAPP ORDER */
+  const placeOrder = () => {
+    let message = `Hello GymFuel Kitchen,%0A%0AI want to order:%0A`;
+
+    Object.keys(selected).forEach((item) => {
+      message += `• ${item}  x ${selected[item].qty}%0A`;
+    });
+
+    message += `%0AGym Location: ${gymName}`;
+
+    window.open(
+      `https://wa.me/918588866339?text=${message}`,
+      "_blank"
+    );
+  };
+
   return (
     <>
-    
+      <Navbar />
 
       <section className="px-6 py-12 bg-gray-50">
         <h2 className="text-3xl font-bold text-center mb-10">
@@ -95,8 +78,59 @@ const Menu = () => {
 
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {products.map((item, index) => (
-            <MenuCard key={index} item={item} />
+            <div key={index} className="bg-white p-4 rounded-xl shadow">
+
+              <img
+                src={item.image}
+                alt={item.name}
+                className="h-40 mx-auto object-contain"
+              />
+
+              <h3 className="font-bold text-center mt-2">{item.name}</h3>
+              <p className="text-center text-green-600">₹{item.price}</p>
+
+              <div className="mt-3 text-center">
+
+                <input
+                  type="checkbox"
+                  onChange={() => toggleProduct(item.name)}
+                />
+
+                {selected[item.name] && (
+                  <input
+                    type="number"
+                    min="1"
+                    value={selected[item.name].qty}
+                    onChange={(e) =>
+                      changeQty(item.name, e.target.value)
+                    }
+                    className="border ml-2 w-16 text-center"
+                  />
+                )}
+              </div>
+            </div>
           ))}
+        </div>
+
+        {/* GYM NAME */}
+        <div className="mt-10 text-center">
+          <input
+            type="text"
+            placeholder="Enter Gym Name / Location"
+            value={gymName}
+            onChange={(e) => setGymName(e.target.value)}
+            className="border p-3 rounded w-80"
+          />
+        </div>
+
+        {/* ORDER BUTTON */}
+        <div className="text-center mt-6">
+          <button
+            onClick={placeOrder}
+            className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700"
+          >
+            Place Order on WhatsApp
+          </button>
         </div>
       </section>
     </>
