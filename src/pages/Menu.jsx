@@ -167,7 +167,7 @@ const Menu = () => {
       return;
     }
 
-    let message = `Hello GymFuel Kitchen,%0A%0A`;
+    let message = `Hello Team zivansh,%0A%0A`;
     message += `Customer: ${customerName}%0A`;
     message += `Gym Location: ${gymName}%0A%0A`;
     message += `Order Details:%0A`;
