@@ -1,8 +1,8 @@
 const features = [
-    "Fresh Daily Preparation",
-    "Gym-Focused Nutrition",
-    "Ready to Eat Meals",
-    "Affordable Pricing",
+    "Our meals with High- Protein ",
+    "Fiber-Rich , Gut-Friendly",
+    "Natural & Fresh daily to fuel",
+    "Your Fitness Goals",
   ];
   
   const WhyChooseUs = () => {

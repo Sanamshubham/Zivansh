@@ -35,14 +35,14 @@ const Navbar = () => {
       <div className="flex justify-between items-center px-6 py-4">
 
         {/* LOGO */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <img
             src={logo}
             alt="GymFuel Kitchen Logo"
-            className="w-10 h-10 object-contain"
+            className="w-20 h-20 object-contain"
           />
           <h1 className="text-2xl font-bold text-green-600">
-            GymFuel Kitchen
+            ZIVANSH
           </h1>
         </div>
 
