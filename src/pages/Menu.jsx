@@ -19,22 +19,22 @@ const products = [
   {
     name: "Classic Protein Salad",
     price: 50,
-    images: [salad1, salad2],
+    images: [salad2],
   },
   {
     name: "Sweet Potato",
     price: 50,
-    images: [potato1, potato2],
+    images: [potato2],
   },
   {
     name: "Poha & Peanuts Salad",
     price: 50,
-    images: [poha1, poha2],
+    images: [poha2],
   },
   {
     name: "Fruit Salad",
     price: 60,
-    images: [fruit1, fruit2],
+    images: [fruit2],
   },
 ];
 
