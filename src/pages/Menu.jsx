@@ -17,17 +17,17 @@ import fruit2 from "../assets/images/fruits_salad2.jpeg";
 /* ===== PRODUCTS ===== */
 const products = [
   {
-    name: "Classic Protein Salad",
+    name: "Classic Salad (Post-Workout)",
     price: 50,
     images: [salad2],
   },
   {
-    name: "Sweet Potato",
+    name: "Sweet Potato (Pre-Workout)",
     price: 50,
     images: [potato2],
   },
   {
-    name: "Poha & Peanuts Salad",
+    name: "Poha,Peanuts & Corn Flakes Salad",
     price: 50,
     images: [poha2],
   },
@@ -160,30 +160,33 @@ const Menu = () => {
   );
 
   /* WHATSAPP ORDER */
-  const placeOrder = () => {
 
-    if (!customerName || !gymName || Object.keys(cart).length === 0) {
-      alert("Please fill all details and select items");
-      return;
-    }
+ const placeOrder = () => {
 
-    let message = `Hello Team zivansh,%0A%0A`;
-    message += `Customer: ${customerName}%0A`;
-    message += `Gym Location: ${gymName}%0A%0A`;
-    message += `Order Details:%0A`;
+  if (!customerName || !gymName || Object.keys(cart).length === 0) {
+    alert("Please fill all details and select items");
+    return;
+  }
 
-    Object.values(cart).forEach((item) => {
-      message += `• ${item.name} x ${item.qty} = ₹${item.qty * item.price}%0A`;
-    });
+  let message = `Hello Team Zivansh,\n\n`;
+  message += `Customer: ${customerName}\n`;
+  message += `Gym Location: ${gymName}\n\n`;
+  message += `Order Details:\n`;
 
-    message += `%0ATotal: ₹${total}`;
+  Object.values(cart).forEach((item) => {
+    message += `- ${item.name} x ${item.qty} = Rs ${item.qty * item.price}\n`;
+  });
 
-    window.open(
-      `https://wa.me/918588866339?text=${message}`,
-      "_blank"
-    );
-  };
+  message += `\nTotal: Rs ${total}`;
 
+  // ✅ IMPORTANT FIX
+  const encodedMessage = encodeURIComponent(message);
+
+  window.open(
+    `https://wa.me/918588866339?text=${encodedMessage}`,
+    "_blank"
+  );
+};
   return (
     <section className="px-4 sm:px-6 py-12 bg-gray-50 min-h-screen">
 
