@@ -12,6 +12,9 @@ import poha3 from "../assets/images/bread.png";
 import poha2 from "../assets/images/poha2.jpeg";
 
 import fruit3 from "../assets/images/peanuts.png";
+import poha1 from "../assets/images/poha.jpeg";
+
+import fruit1 from "../assets/images/fruits_salad.jpeg";
 import fruit2 from "../assets/images/fruits_salad2.jpeg";
 
 /* ===== PRODUCTS ===== */
