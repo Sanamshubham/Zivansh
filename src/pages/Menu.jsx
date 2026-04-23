@@ -3,19 +3,19 @@ import { useState, useEffect } from "react";
 
 /* ===== IMAGE IMPORTS ===== */
 import salad1 from "../assets/images/classic_salad.jpeg";
-import salad2 from "../assets/images/classic_salad2.jpeg";
+import salad2 from "../assets/images/classic_salad2.png";
 
 import potato1 from "../assets/images/potato.jpeg";
-import potato2 from "../assets/images/potato2.jpeg";
+import potato2 from "../assets/images/potato2.png";
 
 import poha3 from "../assets/images/bread.png";
-import poha2 from "../assets/images/poha2.jpeg";
+import poha2 from "../assets/images/poha2.png";
 
 import fruit3 from "../assets/images/peanuts.png";
 import poha1 from "../assets/images/poha.jpeg";
 
 import fruit1 from "../assets/images/fruits_salad.jpeg";
-import fruit2 from "../assets/images/fruits_salad2.jpeg";
+import fruit2 from "../assets/images/fruits_salad2.png";
 
 /* ===== PRODUCTS ===== */
 const products = [
