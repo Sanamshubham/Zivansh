@@ -41,12 +41,12 @@ const products = [
   },
    {
     name: "Peanuts & Oats Power Bites",
-    price: 70,
+    price: 50,
     images: [poha3],
   },
   {
     name: "Browen Bread with Peanuts Butter (Pre- Workout)",
-    price: 50,
+    price: 70,
     images: [fruit3],
   },
 ];
